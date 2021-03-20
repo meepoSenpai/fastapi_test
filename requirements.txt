@@ -1,0 +1,5 @@
+uvicorn>=0.13.4
+jwt>=1.2.0
+pony>=0.7.14
+fastapi>=0.63.0
+python-multipart>=0.0.5
