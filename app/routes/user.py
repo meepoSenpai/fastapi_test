@@ -38,5 +38,5 @@ def delete_user(user: models.User = Depends(decode_token)):
 
 @router.patch("/edit")
 def edit_user(user: schemas.User, db_user: models.User = Depends(decode_token)):
-    db_user.edit_user(mail=user.mail, name=user.name, password=user.passhash)
+    models.User.edit_user(id=db_user.id, mail=user.mail, name=user.name, password=user.passhash)
 

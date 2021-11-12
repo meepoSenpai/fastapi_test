@@ -51,7 +51,9 @@ class User(DB.Entity):
         return False
     
     @db_session
-    def edit_user(self, mail: str, name: Optional[str] = None, password: Optional[str] = None):
-        self.name = name or self.name
-        self.passhash = password or self.passhash
+    def edit_user(id: int, mail: str, name: Optional[str] = None, password: Optional[str] = None):
+        user = User[id]
+        user.mail = mail or user.mail
+        user.name = name or self.name
+        user.passhash = password or self.passhash
         commit()
