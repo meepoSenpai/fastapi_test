@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-from typing import Optional
 
 class User(BaseModel):
     name: str
@@ -10,11 +9,11 @@ class User(BaseModel):
         orm_mode = True
 
 class Todo(BaseModel):
-    id: Optional[int]
-    todo_list: Optional[str]
+    id: int | None = None
+    todo_list: str | None = None
     title: str
-    note: Optional[str]
-    owner: Optional[User]
+    note: str | None = None
+    owner: User | None = None
 
     class Config:
         orm_mode = True

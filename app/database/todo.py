@@ -1,4 +1,4 @@
-from . import DB
+from .service import DB
 from pony.orm import db_session, commit, select, delete
 from pony.orm import Required, Optional, PrimaryKey
 
@@ -9,7 +9,7 @@ class Todo(DB.Entity):
     todo_list = Optional(str)
     title = Required(str)
     note = Optional(str)
-    owner = Required(User)
+    owner = Required("User")
 
     @db_session
     def create(owner: int, title: str, note: str, todo_list: str):
